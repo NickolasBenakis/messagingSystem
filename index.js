@@ -30,7 +30,7 @@ async function writeQueue(line) {
 }
 
 async function writeToFile(line) {
-	fs.appendFile("input.txt", `${line}\n`, (err) => {
+	fs.appendFile("output.txt", `${line}\n`, (err) => {
 		if (err) {
 			console.error(err);
 		}
