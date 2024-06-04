@@ -18,8 +18,6 @@ prerequisite is to have the rabbitMQ running locally, see the installation guide
 * An arbitrary ASCII text file fed into the solution should produce an identical copy ✅ (We do not mutate the text)
 
 
-
-
 # Refs
 ## Tutorial with amqplib
 https://www.npmjs.com/package/amqplib
