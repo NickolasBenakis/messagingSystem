@@ -10,7 +10,7 @@ This is a messaging system. With the below features
 # How to run
 prerequisite is to have the rabbitMQ running locally, see the installation guide below
 
-``` node index.js ```
+``` npm start ```
 
 # Tasks requirements
 * Documentation on how to run your solution ✅ (You are currently into it)

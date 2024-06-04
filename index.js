@@ -49,5 +49,5 @@ async function readQueue() {
 	});
 }
 
-readFile("input.txt");
-readQueue();
+readFile("input.txt"); // this could be a single worker/service that writes to the queue
+readQueue(); // this could be a single worker/service that reads from the queue
