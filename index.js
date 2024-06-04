@@ -17,12 +17,16 @@ async function readFile(filename) {
 }
 
 async function writeQueue(line) {
-	const conn = await amqp.connect("amqp://localhost");
-	const channel = await conn.createChannel();
-	await channel.assertQueue("my_queue", { durable: true });
-	await channel.sendToQueue("my_queue", Buffer.from(`${line}\n`));
-	await channel.close();
-	await conn.close();
+	try {
+		const conn = await amqp.connect("amqp://localhost");
+		const channel = await conn.createChannel();
+		await channel.assertQueue("corti", { durable: true });
+		await channel.sendToQueue("corti", Buffer.from(`${line}\n`));
+		await channel.close();
+		await conn.close();
+	} catch (error) {
+		console.error("error while writing in queue", error);
+	}
 }
 
 async function writeToFile(line) {
@@ -36,8 +40,8 @@ async function writeToFile(line) {
 async function readQueue() {
 	const conn = await amqp.connect("amqp://localhost");
 	const channel = await conn.createChannel();
-	await channel.assertQueue("my_queue", { durable: true });
-	channel.consume("my_queue", (msg) => {
+	await channel.assertQueue("corti", { durable: true });
+	channel.consume("corti", (msg) => {
 		if (msg) {
 			console.log(`Received: ${msg.content.toString()}`);
 			writeToFile(msg.content.toString());
@@ -46,4 +50,4 @@ async function readQueue() {
 }
 
 readFile("input.txt");
-// readQueue();
+readQueue();
