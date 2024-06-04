@@ -1,0 +1,23 @@
+{
+	"name": "messagingsystem",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NickolasBenakis/messagingSystem.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/NickolasBenakis/messagingSystem/issues"
+	},
+	"homepage": "https://github.com/NickolasBenakis/messagingSystem#readme",
+	"dependencies": {
+		"amqplib": "^0.10.4",
+		"fs": "0.0.1-security"
+	}
+}
